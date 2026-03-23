@@ -1,6 +1,6 @@
 --// Libraries
-local IDEModule = require(game.ReplicatedStorage.ide)
-local ReGui = require(game.ReplicatedStorage.ReGui)
+local IDEModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/meowza1/ungui/refs/heads/main/ide.lua"))()
+local ReGui = loadstring(game:HttpGet("https://raw.githubusercontent.com/meowza1/ungui/refs/heads/main/ReGui.lua"))()
 
 --// IDE
 local IDE = IDEModule.CodeFrame.new({
