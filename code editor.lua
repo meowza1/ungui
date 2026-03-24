@@ -9,10 +9,7 @@ local IDE = IDEModule.CodeFrame.new({
 })
 
 --// ReGui
-local PrefabsId = `rbxassetid://{ReGui.PrefabsId}`
-ReGui:Init({
-	Prefabs = game:GetService("InsertService"):LoadLocalAsset(PrefabsId)
-})
+ReGui:Init()
 
 --// Create window
 local Window = ReGui:Window({
