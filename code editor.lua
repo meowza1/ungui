@@ -1,10 +1,8 @@
 --// Libraries
-local ReadSource = readfile or function(Path)
-	return game:HttpGet(("https://raw.githubusercontent.com/meowza1/ungui/refs/heads/main/%s"):format(Path))
-end
+assert(readfile, "code editor.lua requires readfile so local ide.lua/ReGui.lua are used")
 
-local IDEModule = loadstring(ReadSource("ide.lua"))()
-local ReGui = loadstring(ReadSource("ReGui.lua"))()
+local IDEModule = loadstring(readfile("ide.lua"))()
+local ReGui = loadstring(readfile("ReGui.lua"))()
 
 --// IDE
 local IDE = IDEModule.CodeFrame.new({
