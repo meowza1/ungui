@@ -1,6 +1,8 @@
 --// Libraries
-local IDEModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/depthso/Dear-ReGui/refs/heads/main/lib/ide.lua"))()
-local ReGui = loadstring(game:HttpGet('https://web.archive.org/web/20250626175723/https://raw.githubusercontent.com/depthso/Dear-ReGui/refs/heads/main/ReGui.lua'))()
+assert(readfile, "code editor.lua requires readfile so local ide.lua/ReGui.lua are used")
+
+local IDEModule = loadstring(readfile("ide.lua"))()
+local ReGui = loadstring(readfile("ReGui.lua"))()
 
 --// IDE
 local IDE = IDEModule.CodeFrame.new({
@@ -9,16 +11,13 @@ local IDE = IDEModule.CodeFrame.new({
 })
 
 --// ReGui
-local PrefabsId = `rbxassetid://{ReGui.PrefabsId}`
-ReGui:Init({
-	Prefabs = game:GetService("InsertService"):LoadLocalAsset(PrefabsId)
-})
+ReGui:Init()
 
 --// Create window
 local Window = ReGui:Window({
 	Title = "Code editor",
 	Size = UDim2.fromOffset(300, 200),
-	NoScroll = true 
+	NoScroll = true
 })
 
 --// Add IDE frame
