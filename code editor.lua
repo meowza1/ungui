@@ -1,6 +1,10 @@
 --// Libraries
-local IDEModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/meowza1/ungui/refs/heads/main/ide.lua"))()
-local ReGui = loadstring(game:HttpGet("https://raw.githubusercontent.com/meowza1/ungui/refs/heads/main/ReGui.lua"))()
+local ReadSource = readfile or function(Path)
+	return game:HttpGet(("https://raw.githubusercontent.com/meowza1/ungui/refs/heads/main/%s"):format(Path))
+end
+
+local IDEModule = loadstring(ReadSource("ide.lua"))()
+local ReGui = loadstring(ReadSource("ReGui.lua"))()
 
 --// IDE
 local IDE = IDEModule.CodeFrame.new({
